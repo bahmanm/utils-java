@@ -1,0 +1,12 @@
+.gradle/
+.idea/
+/build/
+/dist
+/out
+
+*.iml
+*.class
+*.jar
+*~
+~*
+*\#*
