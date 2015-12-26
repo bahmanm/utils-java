@@ -47,7 +47,7 @@ installed in your local Maven repository.
 Provided that you have done the step 3, simply add the following to your Gradle
 `dependencies` section:
 
-    compile group: 'com.bahmanm', name: 'toolbox', version: '0.1'
+    compile group: 'com.bahmanm', name: 'utils', version: '0.1'
 
 Or if you use Maven:
 
