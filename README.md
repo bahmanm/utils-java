@@ -13,6 +13,31 @@ system is based on Gradle.
 * `distance: double → double → double → double → double`:
  computes the distance between two points (using lat and lon).
 
+## `ListCombinations` ##
+Combination of multiple lists as an iterator.
+
+Example:
+```java
+List<Integer> list1 = new ArrayList<>(); list1.add(0); list1.add(1);
+List<Integer> list2 = new ArrayList<>(); list2.add(2); list2.add(4); list2.add(6);
+ListCombinations<Integer> lc = new ListCombinations<>(list1, list2);
+while (lc.hasNext()) {
+  System.out.print("[");
+  for (Integer i : lc.next())
+    System.out.print(" " + i + " ");
+  System.out.println("]");
+}
+
+// printed on STDOUT
+[ 0  2 ]
+[ 1  2 ]
+[ 0  4 ]
+[ 1  4 ]
+[ 0  6 ]
+[ 1  6 ]
+
+```
+
 # 3. Installation #
 Simply clone the project and run `gradle test install`. If all goes fine
 (`BUILD SUCCESSFUL`), it means that all tests have passed and the artifact is
