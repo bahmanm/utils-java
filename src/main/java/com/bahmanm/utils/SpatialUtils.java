@@ -20,7 +20,7 @@ import static java.lang.Math.*;
 /**
  * Collection of spatial utilities.
  *
- * @author Bahman Movaqar <Bahman AT BahmanM.com>
+ * @author Bahman Movaqar [Bahman AT BahmanM.com]
  */
 final public class SpatialUtils {
 
@@ -30,7 +30,7 @@ final public class SpatialUtils {
   final static public Long earthRadius = 6_371_000L;
 
   /**
-   * Computes the distance between two given points on the map.<br/>
+   * Computes the distance between two given points on the map.<br>
    * NOTE: Haversine method is used for calculations.
    *
    * @param lat1 latitude of the first point (in signed decimal degrees)

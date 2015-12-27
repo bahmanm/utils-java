@@ -23,13 +23,12 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 /**
- * Lazy (iterator) style combinations of multiple lists. It is important to note
- * that the order of the iteration is not guaranteed and might vary each time
- * the class is initialised.
+ * Lazy (iterator) style combinations of multiple lists.<br>
+ * It is important to note that the order of the iteration is not guaranteed.
  *
  * @param <T> type of elements of the lists
  *
- * @author Bahman Movaqar <Bahman AT BahmanM.com>
+ * @author Bahman Movaqar [Bahman AT BahmanM.com]
  */
 public class ListCombinations<T> implements Iterator<List<T>> {
 
@@ -75,7 +74,7 @@ public class ListCombinations<T> implements Iterator<List<T>> {
   }
 
   /**
-   * Calculates the next combination of the input lists.<br/>
+   * Calculates the next combination of the input lists.<br>
    * NOTE: The order of the combinations is not guaranteed.
    *
    * @return the next combination
