@@ -17,7 +17,9 @@ package com.bahmanm.utils;
 
 import com.gs.collections.impl.list.mutable.FastList;
 import com.gs.collections.impl.tuple.Tuples;
+import com.gs.collections.impl.utility.ListIterate;
 
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -30,7 +32,8 @@ import java.util.NoSuchElementException;
  *
  * @author Bahman Movaqar [Bahman AT BahmanM.com]
  */
-public class ListCombinations<T> implements Iterator<List<T>> {
+public class ListCombinations<T>
+  implements Iterator<List<T>>, Iterable<List<T>> {
 
   /** input lists */
   final FastList<FastList<T>> input = new FastList<>();
@@ -47,12 +50,24 @@ public class ListCombinations<T> implements Iterator<List<T>> {
    * @param lists lists to calculate the combinations of
    */
   @SafeVarargs
-  ListCombinations(List<T>... lists) {
-    for (List<T> ll : lists) {
-      assert(ll != null && !ll.isEmpty());
-      input.add(FastList.newList(ll));
-      indexLimits.add(ll.size() - 1);
-    }
+  public ListCombinations(List<T>... lists) {
+    this(Arrays.asList(lists));
+  }
+
+  /**
+   * Creates a new instance making a copy of input lists.
+   *
+   * @param lists a list of lists to calculate the combinations of
+   */
+  public ListCombinations(List<List<T>> lists) {
+    ListIterate.forEach(
+      lists,
+      ll -> {
+        assert(ll != null && !ll.isEmpty());
+        input.add(FastList.newList(ll));
+        indexLimits.add(ll.size() - 1);
+      }
+    );
     hasNextCache = computeHasNext();
   }
 
@@ -143,6 +158,11 @@ public class ListCombinations<T> implements Iterator<List<T>> {
       indexLimits.zip(indexCurrent).anySatisfy(pair ->
         pair.getOne() > pair.getTwo()
       );
+  }
+
+  @Override
+  public Iterator<List<T>> iterator() {
+    return this;
   }
 
 }
