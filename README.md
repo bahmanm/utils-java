@@ -38,21 +38,37 @@ while (lc.hasNext()) {
 
 ```
 
-# 3. Installation #
-Simply clone the project and run `gradle test install`. If all goes fine
-(`BUILD SUCCESSFUL`), it means that all tests have passed and the artifact is
-installed in your local Maven repository.
+# 3. How To Use #
+'utils' is published to [BinTray](https://bintray.com/bahman/maven/com.bahmanm.utils/view).
 
-# 4. Usage #
-Provided that you have done the step 3, simply add the following to your Gradle
-`dependencies` section:
+## 3.1 Gradle ##
+```groovy
+repositories {
+  maven {
+    url "http://jcenter.bintray.com"
+  }
+}
 
-    compile group: 'com.bahmanm', name: 'utils', version: '0.1'
+dependencies {
+  compile group: 'com.bahmanm', name: 'utils', version: '0.1'
+}
+```
 
-Or if you use Maven:
+## 3.2 Maven ##
+```xml
+<repositories>
+  <repository>
+    <id>bintray</id>
+    <name>bintray central</name>
+    <url>http://jcenter.bintray.com</url>
+  </repository>
+</repositories>
 
-    <dependency>
-      <groupId>com.bahmanm</groupId>
-      <artifactId>utils</artifactId>
-      <version>0.1</version>
-    </dependency>
+<dependencies>
+  <dependency>
+    <groupId>com.bahmanm</groupId>
+    <artifactId>utils</artifactId>
+    <version>0.1</version>
+  </dependency>
+</dependencies>
+```
