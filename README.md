@@ -16,17 +16,17 @@ Up-to-date API documentation is available at [http://bahmanm.github.io/utils-jav
 ## 2.1 `geometry` ##
 Euclidean operations in an n-dimensional space
 
-### 2.1 `geometry.Point` ###
+### 2.1.1 `geometry.Point` ###
 A point in an n-dimensional space.
 
-###`geometry.Points` ###
+### 2.1.2 `geometry.Points` ###
 The operations on a point in an n-dimensional space.
 
-## `SpatialUtils` ##
+## 2.2 `SpatialUtils` ##
 * `distance: double → double → double → double → double`:
  computes the distance between two points (using lat and lon).
 
-## `ListCombinations` ##
+## 2.3 `ListCombinations` ##
 Combination of multiple lists as an iterator.
 
 Example:
