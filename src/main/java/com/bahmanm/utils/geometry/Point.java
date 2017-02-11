@@ -19,8 +19,6 @@ import java.util.Arrays;
 
 /**
  * Represents a point in an n-dimensional metric space.<br>
- * NOTE: The code is infected with ugly "for" loops instead of streams to
- * achieve maximum performance.
  *
  * @author Bahman Movaqar <Bahman AT BahmanM.com>
  */
@@ -34,7 +32,6 @@ public class Point {
 
   /**
    * Creates a Point using the given coordinates.<br>
-   * NOTE: It does NOT make a copy of the input parameter.
    *
    * @param coords the given coordinates
    */
