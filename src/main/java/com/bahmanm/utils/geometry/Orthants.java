@@ -1,19 +1,36 @@
+/*
+ * Copyright 2017 Bahman Movaqar
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.bahmanm.utils.geometry;
 
 import com.bahmanm.utils.ListCombinations;
-import com.gs.collections.api.LazyIterable;
-import com.gs.collections.api.map.MutableMap;
-import com.gs.collections.api.tuple.Pair;
-import com.gs.collections.impl.list.mutable.FastList;
-import com.gs.collections.impl.map.mutable.SynchronizedMutableMap;
-import com.gs.collections.impl.map.mutable.UnifiedMap;
-import com.gs.collections.impl.tuple.Tuples;
-import com.gs.collections.impl.utility.LazyIterate;
+import org.eclipse.collections.api.LazyIterable;
+import org.eclipse.collections.api.map.MutableMap;
+import org.eclipse.collections.api.tuple.Pair;
+import org.eclipse.collections.impl.list.mutable.FastList;
+import org.eclipse.collections.impl.map.mutable.SynchronizedMutableMap;
+import org.eclipse.collections.impl.map.mutable.UnifiedMap;
+import org.eclipse.collections.impl.tuple.Tuples;
+import org.eclipse.collections.impl.utility.LazyIterate;
 
 import java.util.List;
 
 /**
- * @author Bahman Movaqar [Bahman AT BahmanM.com]
+ * Operations on orthans in an n-dimensional space.
+ *
+ * @author Bahman Movaqar <Bahman AT BahmanM.com>
  */
 final public class Orthants {
 
@@ -29,14 +46,17 @@ final public class Orthants {
    * Returns the sign of coordinates in a given orthant.<br>
    * Example (2D space):
    * <ul>
-   * <li>signs in orthant 1 -> [1, 1]</li>
-   * <li>signs in orthant 3 -> [-1, -1]</li>
+   * <li>signs in orthant 1 = [1, 1]</li>
+   * <li>signs in orthant 3 = [-1, -1]</li>
    * </ul>
    *
    * @param dims number of dimensions of the metric space
    * @param orthant orthant number (starting from 1)
    */
-  static public Point getOrthantSign(int dims, int orthant) {
+  static public Point
+  getOrthantSign(
+    int dims, int orthant
+  ) {
     assert(dims > 0);
     return orthantSignCache.getIfAbsentPut(
       Tuples.pair(dims, orthant),
@@ -64,7 +84,10 @@ final public class Orthants {
    * @param dims number of dimensions
    * @return a list of lists each containing the sign of coordinates
    */
-  static private LazyIterable<List<Integer>> allOrthantSigns(int dims) {
+  static private LazyIterable<List<Integer>>
+  allOrthantSigns(
+    int dims
+  ) {
     FastList<List<Integer>> signs = FastList.newList(
       new ListCombinations<>(
         FastList.newWithNValues(
@@ -94,7 +117,10 @@ final public class Orthants {
    * @param dims number of dimensions of the metric space
    * @return the number of orthants
    */
-  static private int getOrthantCount(int dims) {
+  static private int
+  getOrthantCount(
+    int dims
+  ) {
     assert(dims < 31);
     return orthantCountCache.getIfAbsentPut(
       dims,

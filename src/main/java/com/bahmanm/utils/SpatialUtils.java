@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Bahman Movaqar
+ * Copyright 2017 Bahman Movaqar
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@ import static java.lang.Math.*;
 /**
  * Collection of spatial utilities.
  *
- * @author Bahman Movaqar [Bahman AT BahmanM.com]
+ * @author Bahman Movaqar <Bahman AT BahmanM.com>
  */
 final public class SpatialUtils {
 

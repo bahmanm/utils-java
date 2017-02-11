@@ -15,9 +15,9 @@
  */
 package com.bahmanm.utils;
 
-import com.gs.collections.impl.list.mutable.FastList;
-import com.gs.collections.impl.tuple.Tuples;
-import com.gs.collections.impl.utility.ListIterate;
+import org.eclipse.collections.impl.list.mutable.FastList;
+import org.eclipse.collections.impl.tuple.Tuples;
+import org.eclipse.collections.impl.utility.ListIterate;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -113,7 +113,8 @@ public class ListCombinations<T>
    *
    * @return copy of currentIndex, incremented by 1
    */
-  static private FastList<Integer> incIndexCurrent(
+  static private FastList<Integer>
+  incIndexCurrent(
     FastList<Integer> limits, FastList<Integer> current
   ) {
     if (current.isEmpty())
