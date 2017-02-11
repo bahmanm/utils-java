@@ -1,14 +1,24 @@
 # 1. Introduction #
 A collection of helper/utility methods for everyday (and sometimes rare) tasks.
 
-It is written in Java, tests are handled by Spock framework and the build
-system is based on Gradle.
+It is written in Java, tests are handled by Groovy and Spock framework and the
+build system is based on Gradle.
 
 ## Requirements ##
-* JDK 1.8
-* Gradle 2.5+
+The only requirement is JDK 1.8.  If you plan to build the project yourself,
+you need Gradle 2.5+.
 
 # 2. Contents #
+
+## 2.1 `geometry` ##
+Euclidean operations in an n-dimensional space
+
+### 2.1 `geometry.Point` ###
+A point in an n-dimensional space.
+
+###`geometry.Points` ###
+The operations on a point in an n-dimensional space.
+
 ## `SpatialUtils` ##
 * `distance: double → double → double → double → double`:
  computes the distance between two points (using lat and lon).
@@ -50,7 +60,7 @@ repositories {
 }
 
 dependencies {
-  compile group: 'com.bahmanm', name: 'utils', version: '0.1'
+  compile group: 'com.bahmanm', name: 'utils', version: '0.6.0'
 }
 ```
 
@@ -68,7 +78,7 @@ dependencies {
   <dependency>
     <groupId>com.bahmanm</groupId>
     <artifactId>utils</artifactId>
-    <version>0.1</version>
+    <version>0.6.0</version>
   </dependency>
 </dependencies>
 ```
