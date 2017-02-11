@@ -8,6 +8,9 @@ build system is based on Gradle.
 The only requirement is JDK 1.8.  If you plan to build the project yourself,
 you need Gradle 2.5+.
 
+## API Documentation ##
+Up-to-date API documentation is available at [http://bahmanm.github.io/utils-java/](http://bahmanm.github.io/utils-java/)
+
 # 2. Contents #
 
 ## 2.1 `geometry` ##
