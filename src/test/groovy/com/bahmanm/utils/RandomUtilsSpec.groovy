@@ -56,23 +56,52 @@ class RandomUtilsSpec extends Specification {
   }
 
   void '''
+    randPeek should throw assert error if the input is null or empty map
+  '''() {
+    when:
+    randPeek(null as Map)
+
+    then:
+    thrown AssertionError
+
+    when:
+    randPeek([:] as Map)
+
+    then:
+    thrown AssertionError
+  }
+
+  void '''
     randPeek should return a random element from the given list
   '''() {
     given:
-    def srcList = [101, 208, 33, 410, 5, 74, 17, 907, 69, 100] as List
+    def src = [101, 208, 33, 410, 5, 74, 17, 907, 69, 100] as List
 
     expect:
-    (0..100).every { randPeek(srcList) in srcList }
+    (0..100).every { randPeek(src) in src }
   }
 
   void '''
     randPeek should return a random element from the given set
   '''() {
     given:
-    def srcSet = [101, 208, 33, 410, 5, 74, 17, 907, 69, 100] as Set
+    def src = [101, 208, 33, 410, 5, 74, 17, 907, 69, 100] as Set
 
     expect:
-    (0..100).every { randPeek(srcSet) in srcSet }
+    (0..100).every { randPeek(src) in src }
+  }
+
+  void '''
+    randPeek should return a random map entry from the given map
+  '''() {
+    given:
+    def src = [
+      a: 101, bb: 208, c: 33, de: 410, feg: 5,
+      gi: 74, mn: 17, qt: 907, xy: 69, xy: 100
+    ] as Map
+
+    expect:
+    (0..100).every { randPeek(src) in src }
   }
 
   void '''
@@ -99,6 +128,19 @@ class RandomUtilsSpec extends Specification {
     [9] as Set             | _
     ['lorem'] as Set       | _
     [[a: 1, b: 2]] as Set  | _
+  }
+
+  void '''
+    randPeek should return the only element if the given map size is 1
+  '''() {
+    expect:
+    randPeek(src) == src.keySet()[0]
+
+    where:
+    src                          | _
+    [age: 9] as Map              | _
+    [5: 'lorem'] as Map          | _
+    [data: [a: 1, b: 2]] as Map  | _
   }
 
 }

@@ -19,6 +19,7 @@ import java.util.Random;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Set;
+import java.util.Map;
 
 /**
  * Collection of utilities to generate random data.
@@ -32,7 +33,7 @@ final public class RandomUtils {
   /**
    * Returns a random element from a given list.
    *
-   * @param src the given list
+   * @param src the given list (not null and not empty)
    * @return a random element
    */
   static public <T> T
@@ -46,7 +47,7 @@ final public class RandomUtils {
   /**
    * Returns a random element from a given set.
    *
-   * @param src the given set
+   * @param src the given set (not null and not empty)
    * @return a random element
    */
   static public <T> T
@@ -58,4 +59,15 @@ final public class RandomUtils {
       );
   }
 
+  /**
+   * Returns a random key from the keys of a given map.
+   *
+   * @param src the given map (not null and not empty)
+   * @return a random key
+   */
+  static public <K, V> K
+  randPeek(Map<K, V> src) {
+    assert src != null && !src.isEmpty();
+    return randPeek(src.keySet());
+  }
 }
